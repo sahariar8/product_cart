@@ -36,10 +36,11 @@ function btn(target){
         const cupon = document.getElementById("cupon");
         cupon.classList.remove("btn-disabled");
     }
-      document.getElementById("cupon").addEventListener("click",function(e){
+      document.getElementById("cupon").addEventListener("click",function(){
         //input Field catch
         const inputValue = document.getElementById("field").value;
             if(inputValue === "SELL200"){
+               
                 const discount = tPrice.innerText * .2;
                 document.getElementById("discount").innerText = discount.toFixed(2);
                 const afterDiscountPrice = tPrice.innerText - discount;
@@ -47,7 +48,14 @@ function btn(target){
         }
         else
         {
-            alert("Please Enter Valid Promo Code");
+          var alert = document.getElementById('alert');
+              alert.classList.remove('hidden');
+
+          setTimeout(function(){
+            alert.classList.add('hidden');
+          },2000);
+          
+            // alert("Please Enter Valid Promo Code");
             document.getElementById("field").value = "";
                 
         }
